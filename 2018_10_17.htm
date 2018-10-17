@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>17.10.2018</title>
+	<style type="text/css">
+		body {
+		  margin: 0;
+		}
+		
+		.container {
+			direction: rtl;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: center;
+			height: 550px;
+			background: yellow;
+			align-items: center;
+			
+		}
+
+		.element {
+			background: red;
+			color: white;
+			font-size: 60px;
+			text-align: center;
+			line-height: 100px;
+			
+			width: 100px;
+			height: 100px;
+			margin: 20px;
+
+		} 
+
+		.box_sized_min{
+			min-width: 80px;
+		}
+
+		.box_sized_max {
+			max-width: 50px;
+		}
+		.box_flexed {
+			flex: 1 20%;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="element">
+			1
+		</div>
+		<div class="element box_flexed">
+			2
+		</div>
+		<div class="element">
+			33
+		</div>
+		<div class="element">
+			4
+		</div>
+		<div class="element box_sized_min">
+			5
+		</div>
+		<div class="element">
+			6
+		</div>
+		<div class="element box_sized_max">
+			7
+		</div>
+		<div class="element">
+			8
+		</div>
+		<div class="element">
+			9
+		</div>
+	</div>
+</body>
+</html>

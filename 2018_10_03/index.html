@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tables</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>15</td>
+			<td rowspan="2">25</td>
+			<td>45</td>
+		</tr>
+		<tr>
+			<td>25</td>
+			<!-- <td>35</td> -->
+			<td>65</td>
+		</tr>
+		<tr>
+			<td>45</td>
+			<td>65</td>
+			<td>80</td>
+		</tr>
+	</table>
+	<table border="1">
+		<tr>
+			<th width="150"></th>
+			<th scope="col">123</th>
+			<th scope="col">456</th>
+		</tr>
+		<tr>
+			<th scope="row">qwe</th>
+			<td colspan="2">asdqwe</td>
+			
+		</tr>
+		<tr>
+			<th scope="row">567</th>
+			<td>tyu</td>
+			<td>gjh</td>
+		</tr>
+	</table>
+	<form action="123.txt" method="get"><input type="text" name="user" maxlength="30">
+		<textarea name="comments" cols="20" rows="4" placeholder="1234"></textarea>
+		<input type="radio" name="genre" value="1" />1
+		<input type="radio" name="genre" value="2" />2
+		<p><input type="radio" name="vav" value="3">3</p>
+		<p><input type="radio" name="vav" value="4">4</p>
+		<p><input type="checkbox" name="service" value="home" checked="checked">home
+			<input type="checkbox" name="service" value="job"> job	
+		</p>
+		<p>
+			<select>
+				<option value="game">game</option>
+				<option value="home"> home</option>
+				<option value="job">job</option>
+			</select>
+		</p>
+		<button value="done" style="width: 100">rfrf[f</button>
+	</form>
+	<form action="123.txt" method="post">
+		<p>download file</p>
+		<input type="file" name="song" /><br />
+		<input type="submit" name="download" value="sdownload">
+	</form>
+	<form action="123.txt">
+		<p>
+			Subscribe me:
+		</p>
+		<input type="text" name="email" />
+		<input type="image" src="1.jpg" name="123" width="100" height="20">
+	</form>
+	<form action="index.html">
+		<button>
+			<img src="1.jpg" alt="add" width="10" height="10" />
+			ADD
+		</button>
+		<input type="hidden" name="zakladka" value="text song">
+	</form>
+	<form action="123.txt">
+		<fieldset style="width: 200px">
+			<legend>It WORKS!</legend>
+		<label>Age
+			<input type="text" name="age" />
+		</label><br>
+		<input id="female" type="radio" name="gender" value="f">
+		<label for="female">Female</label>
+		<input id="male" type="radio" name="gender" value="m">
+		<label for="male">Male</label>
+	</fieldset>
+	</form>
+	<form action="123.txt">
+		<input type="date" name="depart" required="required">
+	</form>
+	<hr />
+	<meta charset="utf-8">
+	
+</body>
+</html>

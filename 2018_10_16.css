@@ -1,0 +1,44 @@
+
+p.example {
+	position: relative;
+
+	width: 450px;
+}
+h1 {
+	position: absolute;
+	top: 0;
+	left: 500px;
+	width: 250px;
+
+}
+
+p.example2 {
+	position: relative;
+	top: 10px;
+	left: 100px;
+}
+
+h1.ccc222 {
+	position: fixed;
+	top: 500px;
+	left: 500px;
+	width: 130px;
+	background-color: rgba(200,150,100,.7);
+
+}
+
+div.test_float {
+	height: 500px;
+}
+
+h1.test_float{
+
+}
+
+p.test_float {
+	float: left;
+	width: 230px;
+	margin: 5px;
+	padding: 5px;
+	
+}
