@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>сфтмфы</title>
+</head>
+<body>
+	<canvas id="canvas" width="200" height="200"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.fillStyle = 'Red';
+		ctx.fillRect(10,120,100,20);
+		ctx.strokeRect(0,0,50,10);
+
+
+		ctx.strokeStyle = 'Red';
+		ctx.lineWidth = 3;
+
+		ctx.beginPath();
+		ctx.moveTo(10, 10);
+		ctx.lineTo(60,60);
+		ctx.moveTo(60,10);
+		ctx.lineTo(10, 60);
+		ctx.stroke();
+
+		ctx.fillStyle = 'Black';
+
+		ctx.beginPath();
+		ctx.moveTo(100,100);
+		ctx.lineTo(100, 60);
+		ctx.lineTo(130, 30);
+		ctx.lineTo(160, 60);
+		ctx.lineTo(160, 100);
+		ctx.lineTo(100, 100);
+
+		ctx.fill();
+
+		ctx.strokeStyle = 'blue';
+
+		ctx.lineWidth = 2;
+		ctx.beginPath();
+		ctx.arc(50, 50, 20, 0, Math.PI /2,false);
+		ctx.stroke();
+
+		
+
+
+	</script>
+	<canvas id="canvas2" width="200" height="200"></canvas>
+	<script type="text/javascript">
+		var canvas2 = document.getElementById('canvas2');
+		var ctx = canvas2.getContext('2d');
+		var color = ["Red", "Orange", "Yellow", "Green", "DeepSkyBlue", "Blue", "Purple"]
+
+		ctx.lineWidth = 4;
+		for (var i = 0; i < color.length; i++) {
+			ctx.strokeStyle = color[i];
+			ctx.beginPath();
+			ctx.arc(100, 100, 20 + 10 * i, 0, Math.PI * 2, false);
+			ctx.stroke();
+		}
+	</script>
+</body>
+</html>

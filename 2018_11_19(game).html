@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <script src="content/jquery-3.3.1.min.js"> </script>
+    <canvas id="canvas" width="400" height="400">
+    </canvas>
+    
+    
+    <script>
+    var canvas = document.getElementById("canvas");
+        
+        var ctx = canvas.getContext("2d");
+        var width = canvas.width;
+        var height = canvas.height;
+        
+        var circle = function (x, y, radius, fillCircle) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            if (fillCircle) {
+                ctx.fill();
+            } else {
+                ctx.stroke();
+            }
+        };
+        //Ball constr
+        
+        var Ball = function() {
+            this.x = width /2;
+            this.y = height /2;
+            this.xSpeed = 5;
+            this.ySpeed = 0;
+        };
+        
+        //Renew Ball states
+        
+        Ball.prototype.move = function() {
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+/*            if (this.x < 0) {
+                this.x = width;
+            }
+        else if (this.x > width) {
+            this.x = 0;
+        }
+            else if (this.y < 0) {
+                this.y = height;
+            }
+            else if (this.y > height) {
+                this.y = 0;
+            }*/
+            };
+        //draw current pos ball
+        
+        Ball.prototype.draw = function() {
+            circle(this.x, this.y, 10, true);
+        };
+        
+        
+        //make direction
+        Ball.prototype.setDirection = function (direction) {
+            if (direction === "up") {
+                this.ySpeed --;
+            } else if (direction === "down") {
+                this.ySpeed ++;
+            } else if (direction === "left") {
+                 this.xSpeed --;
+            }
+            else if (direction === "right") {
+                 this.xSpeed ++;
+            }
+            else if (direction === "stop") {
+                 this.xSpeed = 0;
+                this.ySpeed = 0;
+            }
+        };
+
+        Ball.prototype.checkCollision = function() {
+            if (this.x < 20 || this.x > 380) {
+                this.xSpeed =-this.xSpeed;
+        }
+            if (this.y < 20 || this.y > 380) {
+                this.ySpeed =-this.ySpeed;
+            }
+        };
+        
+        //object-ball
+        
+        var ball = new Ball();
+        
+        // object for kbd
+        
+        var keyActions = {
+            32: "stop",
+            37: "left",
+            38: "up",
+            39: "right",
+            40: "down",
+        };
+        
+        //obrabotchik keydown
+        $("body").keydown(function (event) {
+            var direction = keyActions[event.keyCode];
+            ball.setDirection(direction);
+        });
+        
+       //anime
+        
+        setInterval(function() {
+            ctx.clearRect(0, 0, width, height);
+            ball.draw();
+            ball.move();
+            ball.checkCollision();
+            ctx.strokeRect(0, 0, width, height);
+        }, 30);
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+     <canvas id="canvas" width="400" height="400">
+    
+    </canvas>
+    
+    <script>
+    
+        var canvas = document.getElementById("canvas");
+        
+        var ctx = canvas.getContext("2d");
+        
+        
+        var Ball = function() {
+            this.x =50;
+            this.y = 50;
+            this.xSpeed = Math.floor(Math.random()*20)+1;
+            this.ySpeed = Math.floor(Math.random()*20)+1;
+        };
+        
+        
+        var circle = function (x, y, radius, fillCircle) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            if (fillCircle) {
+                ctx.fill();
+            }
+        };
+        Ball.prototype.draw = function() {
+            circle(this.x, this.y, 3, true);
+        };
+        
+        Ball.prototype.move = function() {
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+        };
+        
+        //collision
+        Ball.prototype.checkCollision = function() {
+            if (this.x > 50) {var xMod = -1} else {var xMod = 1};
+            if (this.y > 50) {var yMod = -1} else {var yMod = 1};
+            if (this.x < 50 || this.x > 350) {
+                this.xSpeed = (Math.floor(Math.random()*10) + 1) * xMod;
+        }
+            if (this.y < 50 || this.y > 350) {
+                this.ySpeed = (Math.floor(Math.random()*10) + 1) * yMod;
+            }
+        };
+        
+        
+        //Анимация мяча
+        
+        var balls = [];
+        var numBalls = prompt('How much balls you want?');
+        if (numBalls > 12000) {numBalls = 12000}
+        for (var i = 0; i <= numBalls; i++) {
+            balls[i] = new Ball();
+        }
+        setInterval(function() {
+            ctx.clearRect(0, 0, 400, 400);
+            for (var i = balls.length - 1; i > 0; i--) {
+
+                balls[i].draw();
+                balls[i].move();
+                balls[i].checkCollision();
+            
+            }
+            ctx.strokeRect(0, 0, 400, 400);
+        }, 30);
+        
+        
+    </script>
+
+</body>
+</html>

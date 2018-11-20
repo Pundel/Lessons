@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script src="content/jquery-3.3.1.min.js"></script>
+  <script>
+    /*    var drawCar = function (car) {
+        var carHtml = '<img src ="img/car.jpg">';
+  
+        var carElelment = $(carHtml);
+        carElelment.css({
+          position: "absolute",
+          left: car.x,
+          top: car.y
+        });
+        $("body").append(carElelment);
+      }; */
+
+    var Car = function (x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    Car.prototype.drow = function () {
+      var carHtml = '<img src ="content/img/car.jpg">';
+
+      this.carElelment = $(carHtml);
+      this.carElelment.css({
+        position: "absolute",
+        left: this.x,
+        top: this.y
+      });
+      $("body").append(this.carElelment);
+
+    };
+    Car.prototype.moveRight = function () {
+      this.x += 5;
+
+      this.carElelment.css({
+        left: this.x,
+        top: this.y
+      });
+    };
+    Car.prototype.moveLeft = function () {
+      this.x -= 5;
+
+      this.carElelment.css({
+        left: this.x,
+        top: this.y
+      });
+    };
+    var zaporogets1 = new Car(20, 20);
+    var zaporogets2 = new Car(400, 200);
+    zaporogets1.drow();
+    zaporogets2.drow();
+    zaporogets1.moveRight();
+    zaporogets2.moveRight();
+
+    //while (zaporogets1.x < 900) {
+    function carMoveRight (){
+    	if (zaporogets1.x < 900) {zaporogets1.moveRight();}
+        else {zaporogets1.moveLeft();}
+    }
+    setInterval(carMoveRight, 50)
+	//}
+
+    
+  </script>
+
+</body>
+
+</html>
